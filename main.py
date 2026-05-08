@@ -10,7 +10,12 @@ from googlesearch import search #pip install googlesearch-python
 from flask import render_template
 
 app = Flask(__name__)
+from flask import Flask, jsonify
+from flask_cors import CORS # ADD THIS LINE
+import live_matches
 
+app = Flask(__name__)
+CORS(app) # ADD THIS LINE
 
 @app.route('/players/<player_name>', methods=['GET'])
 def get_player(player_name):
